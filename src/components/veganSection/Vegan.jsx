@@ -29,19 +29,20 @@ const Vegan = () => {
 					pagination: false,
 				}}
 			>
-				{veganFood.map(recipe => {
-					return (
-						<SplideSlide key={recipe.id}>
-							<FoodCard>
-								<img src={recipe.image} alt={recipe.title} />
-								<div className="overlay">
-									<p>{recipe.title}</p>
-									<p className="diets">{recipe.diets}</p>
-								</div>
-							</FoodCard>
-						</SplideSlide>
-					);
-				})}
+				{veganFood &&
+					veganFood.map(recipe => {
+						return (
+							<SplideSlide key={recipe.id}>
+								<FoodCard>
+									<img src={recipe.image} alt={recipe.title} />
+									<div className="overlay">
+										<p>{recipe.title}</p>
+										<p className="diets">{recipe.diets}</p>
+									</div>
+								</FoodCard>
+							</SplideSlide>
+						);
+					})}
 			</Splide>
 		</RandomWrap>
 	);

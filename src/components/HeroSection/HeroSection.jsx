@@ -26,18 +26,19 @@ const HeroSection = () => {
 					gap: '1rem',
 				}}
 			>
-				{randomFood.map(recipe => {
-					return (
-						<SplideSlide key={recipe.id}>
-							<FoodCard>
-								<img src={recipe.image} alt={recipe.title} />
-								<div className="overlay">
-									<p>{recipe.title}</p>
-								</div>
-							</FoodCard>
-						</SplideSlide>
-					);
-				})}
+				{randomFood &&
+					randomFood.map(recipe => {
+						return (
+							<SplideSlide key={recipe.id}>
+								<FoodCard>
+									<img src={recipe.image} alt={recipe.title} />
+									<div className="overlay">
+										<p>{recipe.title}</p>
+									</div>
+								</FoodCard>
+							</SplideSlide>
+						);
+					})}
 			</Splide>
 		</RandomWrap>
 	);

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link as LinkR } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const HeaderNav = styled.header`
 	background-color: #a2c8ec;
@@ -40,7 +40,7 @@ export const LinkList = styled.div`
 	margin: 10px;
 `;
 
-export const NavLink = styled(LinkR)`
+export const NavLink = styled(Link)`
 	font-size: 1.2rem;
 	color: #fff;
 	border: 1px solid #fff;
