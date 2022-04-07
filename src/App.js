@@ -8,6 +8,7 @@ import './App.css';
 import DetailCategory from './pages/DetailCategory';
 import SearchPage from './pages/SearchPage';
 import Search from './components/Search/Search';
+import Recipe from './pages/Recipe';
 
 const App = () => {
 	return (
@@ -19,6 +20,7 @@ const App = () => {
 				<Route exact path="/category" component={CategoryPage} />
 				<Route exact path="/mealtype/:type" component={DetailCategory} />
 				<Route exact path="/searched/:search" component={SearchPage} />
+				<Route exact path="/recipe/:name" component={Recipe} />
 			</Switch>
 		</Router>
 	);

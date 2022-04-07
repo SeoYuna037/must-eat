@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -21,10 +22,14 @@ const SearchPage = () => {
 			{searchFood &&
 				searchFood.map(item => {
 					return (
-						<FoodCard key={item.id}>
-							<img src={item.image} alt={item.title} />
-							<h3>{item.title}</h3>
-						</FoodCard>
+						<div key={item.id}>
+							<Link to={'/recipe/' + item.id}>
+								<FoodCard key={item.id}>
+									<img src={item.image} alt={item.title} />
+									<h3>{item.title}</h3>
+								</FoodCard>
+							</Link>
+						</div>
 					);
 				})}
 		</Grid>

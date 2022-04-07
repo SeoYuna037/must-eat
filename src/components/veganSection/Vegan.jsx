@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RandomWrap, FoodCard } from './VeganComponents';
+import { Link } from 'react-router-dom';
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
@@ -33,13 +34,15 @@ const Vegan = () => {
 					veganFood.map(recipe => {
 						return (
 							<SplideSlide key={recipe.id}>
-								<FoodCard>
-									<img src={recipe.image} alt={recipe.title} />
-									<div className="overlay">
-										<p>{recipe.title}</p>
-										<p className="diets">{recipe.diets}</p>
-									</div>
-								</FoodCard>
+								<Link to={'/recipe/' + recipe.id}>
+									<FoodCard>
+										<img src={recipe.image} alt={recipe.title} />
+										<div className="overlay">
+											<p>{recipe.title}</p>
+											<p className="diets">{recipe.diets}</p>
+										</div>
+									</FoodCard>
+								</Link>
 							</SplideSlide>
 						);
 					})}
