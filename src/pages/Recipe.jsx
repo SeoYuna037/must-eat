@@ -1,8 +1,6 @@
-import { Details } from '@material-ui/icons';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import styled from 'styled-components';
-
 const Recipe = () => {
 	let params = useParams();
 	const [foodRecipe, setFoodRecipe] = useState({});
@@ -26,28 +24,30 @@ const Recipe = () => {
 				<img src={foodRecipe.image} alt={foodRecipe.title} />
 			</div>
 			<FoodInfo>
-				<Button
-					className={activeBtn === 'instructions' ? 'active' : ''}
-					onClick={() => setActiveBtn('instructions')}
-				>
-					Instructions
-				</Button>
-				<Button
-					className={activeBtn === 'ingredients' ? 'active' : ''}
-					onClick={() => setActiveBtn('ingredients')}
-				>
-					Ingredients
-				</Button>
+				<div className="button-list">
+					<Button
+						className={activeBtn === 'instructions' ? 'active' : ''}
+						onClick={() => setActiveBtn('instructions')}
+					>
+						Instructions
+					</Button>
+					<Button
+						className={activeBtn === 'ingredients' ? 'active' : ''}
+						onClick={() => setActiveBtn('ingredients')}
+					>
+						Ingredients
+					</Button>
+				</div>
 				{activeBtn === 'instructions' && (
 					<div>
 						<h3 dangerouslySetInnerHTML={{ __html: foodRecipe.summary }} />
 						<h3 dangerouslySetInnerHTML={{ __html: foodRecipe.instructions }} />
 					</div>
 				)}
-				{activeBtn === 'instructions' && (
+				{activeBtn === 'ingredients' && (
 					<ul>
-						{Details.extendedIngredients &&
-							Details.extendedIngredients.map(ingredient => (
+						{foodRecipe.extendedIngredients &&
+							foodRecipe.extendedIngredients.map(ingredient => (
 								<li key={ingredient.id}>{ingredient.original}</li>
 							))}
 					</ul>
@@ -62,9 +62,17 @@ export default Recipe;
 const RecipeWrapper = styled.article`
 	margin: 5rem;
 	display: flex;
+	justify-content: center;
+
+	.active {
+		background-color: #000;
+		color: #fff;
+	}
 	h1 {
-		font-size: 2.2rem;
+		font-size: 2rem;
 		font-weight: 500;
+		width: 600px;
+		padding: 1rem 0;
 	}
 	li {
 		font-size: 1.2rem;
@@ -73,6 +81,11 @@ const RecipeWrapper = styled.article`
 	ul {
 		margin-top: 2rem;
 	}
+	@media screen and (max-width: 1300px) {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 `;
 const Button = styled.button`
 	padding: 1rem 1rem;
@@ -80,11 +93,20 @@ const Button = styled.button`
 	background-color: #fff;
 	border: 2px solid black;
 	margin-right: 1rem;
-	.active {
-		background-color: #000;
-		color: #fff;
-	}
 `;
 const FoodInfo = styled.div`
 	margin-left: 10rem;
+	h3 {
+		line-height: 1.9rem;
+		font-weight: 400;
+	}
+	.button-list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+	}
+	@media screen and (max-width: 1300px) {
+		margin-left: 0;
+	}
 `;

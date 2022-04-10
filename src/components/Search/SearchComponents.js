@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const SearchForm = styled.form`
-	margin: 10rem;
+	margin: 4rem 10rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;

@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { RandomWrap, FoodCard } from './VeganComponents';
+import { RandomWrap, FoodCard } from './FingerFoodComponents';
 import { Link } from 'react-router-dom';
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
-const Vegan = () => {
-	const [veganFood, setVeganFoodFood] = useState([]);
+
+const FingerFood = () => {
+	const [fingerFoodList, setfingerFoodList] = useState([]);
 	useEffect(() => {
-		getRandom();
+		getRandomFingerFood();
 	}, []);
-	const getRandom = async () => {
+	const getRandomFingerFood = async () => {
 		const api = await fetch(
-			`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10&tags=vegan`,
+			`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10&mealtype=fingerfood`,
 		);
 		const data = await api.json();
-		setVeganFoodFood(data.recipes);
+		setfingerFoodList(data.recipes);
 	};
-
 	return (
 		<RandomWrap>
-			<h1>VeganFood</h1>
+			<h1>Finger Food</h1>
 			<Splide
 				options={{
 					perPage: 4,
@@ -29,8 +29,8 @@ const Vegan = () => {
 					pagination: false,
 				}}
 			>
-				{veganFood &&
-					veganFood.map(recipe => {
+				{fingerFoodList &&
+					fingerFoodList.map(recipe => {
 						return (
 							<SplideSlide key={recipe.id}>
 								<Link to={'/recipe/' + recipe.id}>
@@ -38,7 +38,6 @@ const Vegan = () => {
 										<img src={recipe.image} alt={recipe.title} />
 										<div className="overlay">
 											<p>{recipe.title}</p>
-											<p className="diets">{recipe.diets}</p>
 										</div>
 									</FoodCard>
 								</Link>
@@ -50,4 +49,4 @@ const Vegan = () => {
 	);
 };
 
-export default Vegan;
+export default FingerFood;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -21,10 +22,14 @@ const DetailCategory = () => {
 			{mealType &&
 				mealType.map(item => {
 					return (
-						<FoodCard key={item.id}>
-							<img src={item.image} alt={item.title} />
-							<h3>{item.title}</h3>
-						</FoodCard>
+						<div key={item.id}>
+							<Link to={'/recipe/' + item.id}>
+								<FoodCard>
+									<img src={item.image} alt={item.title} />
+									<h3>{item.title}</h3>
+								</FoodCard>
+							</Link>
+						</div>
 					);
 				})}
 		</Grid>
@@ -45,6 +50,7 @@ const Grid = styled.section`
 const FoodCard = styled.div`
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	padding: 2rem;
+	height: 350px;
 	img {
 		border-radius: 30px;
 		object-fit: cover;
@@ -52,5 +58,8 @@ const FoodCard = styled.div`
 	}
 	h3 {
 		text-align: center;
+	}
+	@media screen and (max-width: 1200px) {
+		height: auto;
 	}
 `;

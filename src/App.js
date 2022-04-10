@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Home from './pages/Home';
@@ -9,7 +9,6 @@ import DetailCategory from './pages/DetailCategory';
 import SearchPage from './pages/SearchPage';
 import Search from './components/Search/Search';
 import Recipe from './pages/Recipe';
-
 const App = () => {
 	return (
 		<Router>
