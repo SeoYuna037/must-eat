@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/must-eat/static/css/main.14eb6683.css",
+    "main.js": "/must-eat/static/js/main.5fe64a82.js",
+    "index.html": "/must-eat/index.html",
+    "main.14eb6683.css.map": "/must-eat/static/css/main.14eb6683.css.map",
+    "main.5fe64a82.js.map": "/must-eat/static/js/main.5fe64a82.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14eb6683.css",
+    "static/js/main.5fe64a82.js"
+  ]
+}
