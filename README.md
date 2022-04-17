@@ -42,3 +42,11 @@ components
 >카테고리를 눌러 원하는 타입의 음식을 골라 레시피를 확인합니다
 
 <img src="https://user-images.githubusercontent.com/96972549/163721318-739dcf54-adae-4707-abc1-47552fe0f99d.gif">
+
+
+### 주요코드
+>api 호출 및 useEffect로 api 업데이트
+<img src="https://user-images.githubusercontent.com/96972549/163721525-2e399aa7-1cfd-4b40-82b1-61a03fc679ed.png">
+
+>검색 처리
+<img src="https://user-images.githubusercontent.com/96972549/163721590-724aaff7-0235-4fa5-b125-1c040c8c7b10.png">
